@@ -3,25 +3,26 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Laser Line
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - No Player Collision
   - Water
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Hidden
+  - Stencil
+  - Post-Procssing
+  - FPS Object
+  - Enviroment
+  - Enviroment Ovarley
+  - Iteractable
+  - Post-Procssing Ovarley
   - 
   - 
   - 
