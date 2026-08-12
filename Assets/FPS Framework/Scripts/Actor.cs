@@ -84,7 +84,7 @@ namespace Akila.FPSFramework
 
             if (isLocallyMine)
             {
-                UIManager.Instance?.KillFeed?.Show(this, victim.actorName, group.GetBone() == HumanBodyBones.Head ? true : false);
+                UIManager.Instance?.KillFeed?.Show(this, victim.actorName, group.GetBone() == HumanBodyBones.Head);
                 UIManager.Instance?.Hitmarker?.Enable(true, true, UIManager.Instance.Hitmarker.maxSize);
             }
         }

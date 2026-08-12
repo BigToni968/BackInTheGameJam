@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 00000000000000000000000000000000
+  productGUID: b1bbf331590f7cb499751aa604091505
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -164,7 +164,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.Akila.FPSFramework
-    Standalone: com.Akila.FPS-Framework
+    Standalone: com.DefaultCompany.BackInTheGameJam
   buildNumber:
     Standalone: 0
     VisionOS: 0

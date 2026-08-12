@@ -1182,7 +1182,7 @@ MonoBehaviour:
   maxFallSpeed: 100
   stickToGroundForce: 0.5
   _Camera: {fileID: 1027490707936937399}
-  sensitivity: 1
+  sensitivity: 100
   maximumX: 90
   minimumX: -90
   offset: {x: 0, y: -0.2, z: 0}
