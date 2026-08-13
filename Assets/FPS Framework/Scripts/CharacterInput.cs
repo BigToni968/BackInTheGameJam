@@ -122,8 +122,8 @@ namespace Akila.FPSFramework
             // Read and process raw look input values
             Vector2 rawLookInput_Unmultiplied = controls.Player.Look.ReadValue<Vector2>();
             rawLookInput = new Vector2(
-                rawLookInput_Unmultiplied.x * FPSFrameworkUtility.xSensitivityMultiplier,
-                rawLookInput_Unmultiplied.y * FPSFrameworkUtility.ySensitivityMultiplier
+                rawLookInput_Unmultiplied.x * FPSFrameworkUtility.xSensitivityMultiplier * FPSFrameworkUtility.sensitivityMultiplier,
+                rawLookInput_Unmultiplied.y * FPSFrameworkUtility.ySensitivityMultiplier * FPSFrameworkUtility.sensitivityMultiplier
             );
 
             // Update sprint and tactical sprint inputs
