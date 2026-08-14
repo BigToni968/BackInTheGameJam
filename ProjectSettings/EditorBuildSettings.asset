@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FPS Framework/Scenes/Demo.unity
     guid: c604dab8d2dc4c845b0a15de6b5edc02
+  - enabled: 1
+    path: Assets/FPS Framework/Scenes/Map_Test.unity
+    guid: 9b29618a02118f44e8202ba472083792
   m_configObjects: {}
