@@ -145,10 +145,7 @@ namespace Akila.FPSFramework
             DoDamage(amount, damageSource);
         }
 
-        public bool IsDead()
-        {
-            return health <= 0 ? true : false;
-        }
+        public bool IsDead() => health <= 0f;
 
         public Actor GetActor()
         {
