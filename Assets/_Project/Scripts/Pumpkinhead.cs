@@ -149,6 +149,7 @@ namespace Game.Enemys
             rb.constraints = RigidbodyConstraints.None;
 
             enabled = false;
+            Destroy(gameObject, 5f);
         }
 
         public void OnUpdate()

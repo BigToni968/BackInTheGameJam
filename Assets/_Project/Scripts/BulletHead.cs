@@ -1,5 +1,6 @@
-using Game.Other;
+using Akila.FPSFramework;
 using UnityEngine;
+using Game.Other;
 
 namespace Game.Enemys
 {
@@ -9,6 +10,7 @@ namespace Game.Enemys
         [SerializeField] private float speed = 15f;
         [SerializeField] private float lifetime = 5f;
         [SerializeField] private LayerMask playerLayer;
+        [SerializeField] private float damage = 1f;
 
         private Vector3 targetPosition;
         private bool isInitialized;
@@ -30,6 +32,8 @@ namespace Game.Enemys
         {
             if (((1 << other.gameObject.layer) & playerLayer) != 0)
             {
+                other.TryGetComponent(out HealthSystem healthSystem);
+                healthSystem?.Damage(damage, null);
                 Destroy(gameObject);
             }
         }
@@ -38,12 +42,7 @@ namespace Game.Enemys
         {
             if (!isInitialized) return;
             
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-            
-            if (Vector3.Distance(transform.position, targetPosition) < 0.05f)
-            {
-                // Замените на нужную логику, если требуется убрать сразу после достижения точки
-            }
+            transform.position += transform.forward * speed * Time.deltaTime;
         }
     }
 }

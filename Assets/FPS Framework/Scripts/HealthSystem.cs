@@ -78,7 +78,7 @@ namespace Akila.FPSFramework
             health -= damage;
             this.killer = killer;
 
-            if (type == HealthType.Humanoid && Actor.characterManager != null)
+            if (type == HealthType.Humanoid && Actor != null && Actor.characterManager != null)
             {
                 Actor.characterManager.cameraManager.ShakeCameras(damageCameraShake);
             }
