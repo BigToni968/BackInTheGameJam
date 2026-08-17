@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 namespace Akila.FPSFramework
 {
@@ -10,18 +7,22 @@ namespace Akila.FPSFramework
     {
         [SerializeField] UIManager HUD;
         [SerializeField] DeathCamera deathCamera;
-
-
+        
         public UIManager UIManager { get; set; }
         public DeathCamera DeathCamera { get; set; }
+        
+        public static GameManager Instance { get; private set; }
 
         private void Awake()
         {
-            if(HUD)
-            UIManager = Instantiate(HUD);
+            if (Instance != null)
+                Destroy(Instance.gameObject);
 
-            if(deathCamera)
-            DeathCamera = Instantiate(deathCamera);
+            Instance = this;
+            
+            if(HUD) UIManager = Instantiate(HUD);
+
+            if(deathCamera) DeathCamera = Instantiate(deathCamera);
         }
     }
 }

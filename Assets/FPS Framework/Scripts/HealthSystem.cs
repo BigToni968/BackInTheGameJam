@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Events;
+﻿using UnityEngine.Events;
 using UnityEngine;
-using System;
 
 namespace Akila.FPSFramework
 {
@@ -12,6 +9,7 @@ namespace Akila.FPSFramework
         public HealthType type = HealthType.Other;
         public float health = 100;
         public float destroyDelay;
+        public float respawnDelay = 1f;
         [Range(0, 1)] public float damageCameraShake = 0.3f;
 
         [Space]
@@ -39,7 +37,7 @@ namespace Akila.FPSFramework
             ragdoll = GetComponent<Ragdoll>();
 
             OnDeath.AddListener(Die);
-            if (FindObjectOfType<GameManager>()) deathCamera = FindObjectOfType<GameManager>().DeathCamera;
+            deathCamera = GameManager.Instance.DeathCamera;
 
             MaxHealth = health;
 
@@ -57,11 +55,6 @@ namespace Akila.FPSFramework
                         UIManager.Instance.HealthDisplay.actorNameText.text = Actor.actorName;
                     }
                 }
-            }
-
-            if(type == HealthType.Other)
-            {
-                if (ragdoll || Actor) Debug.LogWarning($"{this} has humanoid components and it's type is Other please change type to Humanoid to avoid errors.");
             }
         }
 
@@ -111,7 +104,7 @@ namespace Akila.FPSFramework
 
             if (destoryOnDeath && !destroyRoot) Destroy(gameObject, destroyDelay);
             if (destoryOnDeath && destroyRoot) Destroy(gameObject.transform.parent.gameObject, destroyDelay);
-            if (ragdoll) ragdoll.Enable(deathForce);
+            ragdoll?.Enable(deathForce);
 
             if (!died) Respwan();
 
@@ -129,7 +122,7 @@ namespace Akila.FPSFramework
             if (type != HealthType.Humanoid && !Actor) return;
 
             if (Actor.actorManager && Actor.actorManager.respawnable)
-                Actor.actorManager.Respwan(Actor.actorManager.SpwanManager.respawnDelay);
+                Actor.actorManager.Respwan(respawnDelay);
 
             //if player enable death cam
             if (Actor.characterManager != null) deathCamera.Enable(Actor, killer);

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -51,14 +50,10 @@ namespace Akila.FPSFramework
         /// name of the actor
         /// </summary>
         public string ActorName { get; set; }
-        public SpawnManager SpwanManager { get; set; }
-
 
         private void Start()
         {
             if (!actorPrefab) actorPrefab = GetComponentInChildren<Actor>();
-
-            SpwanManager = SpawnManager.Instance;
 
             UIManager.Instance?.SetName(ActorName);
 
@@ -103,18 +98,7 @@ namespace Akila.FPSFramework
         /// </summary>
         public Actor Spwan()
         {
-            int index = Random.Range(0, SpwanManager.sides[teamID].points.Length);
-
-            Vector3 pos = Vector3.zero;
-            Quaternion rot = Quaternion.identity;
-
-            pos = SpwanManager.sides[teamID].points[index].position;
-            rot = SpwanManager.sides[teamID].points[index].rotation;
-
-            pos += Random.insideUnitSphere * SpwanManager.spawnRadius * SpwanManager.transform.lossyScale.magnitude;
-            pos.y = SpwanManager.sides[teamID].points[index].position.y;
-
-            Actor newActor = Instantiate(actorPrefab, pos, rot, transform);
+            Actor newActor = Instantiate(actorPrefab, transform);
 
             if (randomizeName)
             {
